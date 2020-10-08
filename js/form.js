@@ -27,7 +27,7 @@ botaoAdicionar.addEventListener("click", function(event){
 
 });
 
-function obtemPacienteDoForm(){
+function obtemPacienteDoForm(form){
     
    var paciente = {
        nome: form.nome.value,
