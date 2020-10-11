@@ -14,8 +14,8 @@
 			<div class="container">
 				<a href="index.html"><img src="img/logo-branca.png"></a>
 				<h1 class="titulo">Aparecida Nutrição</h1>
-			
-				<nav>
+
+                <nav>
 				<ul>
 					<li><a href="#tabela-pacientes">Meus Pacientes</a></li>
 					<li><a href="#titulo-form">Novos Pacientes</a></li>
@@ -26,6 +26,8 @@
 		<main>
 			<section class="container">
 				<h2>Meus pacientes</h2>
+				<label for="filtrar-tabela">Filtre:</label>
+    			<input type="text" name="filtro" id="filtrar-tabela" placeholder="Digite o nome do paciente">	
 				<table>
 					<thead>
 						<tr>
@@ -37,10 +39,10 @@
 						</tr>
 					</thead>
 					<tbody id="tabela-pacientes">
-						<tr class="paciente" id="primeiro-paciente">
+						<tr class="paciente">
 							<td class="info-nome">Paulo</td>
 							<td class="info-peso">100</td>
-							<td class="info-altura">2.00</td>
+							<td class="info-altura">5.00</td>
 							<td class="info-gordura">10</td>
 							<td class="info-imc">0</td>
 						</tr>
@@ -77,7 +79,7 @@
 						</tr>
 					</tbody>
 				</table>
-
+				<button id="buscar-pacientes" class="botao bto-principal">Buscar Pacientes</button>
 			</section>
 		</main>
 
@@ -106,8 +108,11 @@
 			</form>
 		</section>
 
-		<script src="js/calcula-imc.js" ></script>
-		<script src="js/form.js" ></script>
-		
+		<script src="./js/calcula-imc.js"></script>
+		<script src="./js/form.js"></script>
+		<script src="./js/remover.js"></script>
+		<script src="./js/filtra.js"></script>
+		<script src="./js/buscar-pacientes.js"></script>
+
 	</body>
 </html>

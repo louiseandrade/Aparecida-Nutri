@@ -1,67 +1,64 @@
-var titulo = document.querySelector(".titulo");
-titulo.textContent = "Aparecida Nutricionista";
-
 var pacientes = document.querySelectorAll(".paciente");
 
-for (var i = 0; i < pacientes.length; i++) {
-   
+for(var i = 0; i < pacientes.length; i++) {
+
     var paciente = pacientes[i];
 
-    var tdPeso= paciente.querySelector(".info-peso");
+    var tdPeso = paciente.querySelector(".info-peso");
     var peso = tdPeso.textContent;
-
-
+    
+    
     var tdAltura = paciente.querySelector(".info-altura");
     var altura = tdAltura.textContent;
 
+
     var tdImc = paciente.querySelector(".info-imc");
 
-    var pesoValido = validaPeso(peso);
-    var alturaValida = validaAltura(altura);
+    var alturaEhValida = validaAltura(altura);
+    var pesoEhValido = validaPeso(peso);
 
-
-
-    if(!pesoValido) {
-        console.log("Peso inválido");
-        pesoValido = false;
-        tdImc.textContent = "Peso inválido!"
-        paciente.classList.add("paciente-invalido");
+    if (!pesoEhValido) {
+        console.log("Peso Inválido");
+        pesoEhValido = false;
+        tdImc.textContent = "Peso Invalido";
+        paciente.classList.add("paciente-invalido"); // classList.add vai adicionar um classe no HTML//
     }
 
-    if(!alturaValida){
-        console.log("Altura inválida!")
-        alturaValida = false;
-        tdImc.textContent = "Altura inválida!"
+    if (!alturaEhValida) {
+        console.log("Altura Inválida");
+        alturaEhValida = false;
+        tdImc.textContent = "Altura Inválida";
         paciente.classList.add("paciente-invalido");
+        
     }
 
-    if(alturaValida && pesoValido) {
-        var imc = peso / (altura * altura); // 100 / 2.0  * 2.0
+    if (alturaEhValida && pesoEhValido) {
+        var imc = calculaImc(peso,altura);
         tdImc.textContent = imc;
-    } else {
-        tdImc.textContent = "Altura e/ou peso inválidos!"
     }
 }
 
 function validaPeso(peso){
-
-    if(peso >=0 && peso < 1000) {
+    if(peso >= 0 && peso < 1000){
         return true;
-    } else {
+    }else{
         return false;
     }
 }
 
 function validaAltura(altura){
-    if(altura >= 0 && altura <= 3.00){
+    if(altura >=0 && altura < 3.0){
         return true;
-    } else {
+    }else{
         return false;
     }
 }
 
-function calculaImc(peso, altura){
+
+function calculaImc(peso,altura){
     var imc = 0;
     imc = peso / (altura * altura);
-    return imc.toFixed(2);
+
+    return imc.toFixed(2); // limita a impresao do mumero em casas decimais//;
+
 }
